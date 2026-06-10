@@ -1,0 +1,20 @@
+name: Validar Conteudo HTML
+
+on:
+  push:
+
+jobs:
+  validar:
+      runs-on: unbuntu-latest
+
+      steps:
+        -uses: actions/checkout@v4
+
+        -name: Verificar title
+        run: grep -q "Teste Pipeline" index.html
+
+        -name: Verificar h1
+        run: grep -q "Meu primeiro pipeline" index.html
+
+        -name: Mensagem Final
+        run: echo " Conteudo validado com sucesso"
