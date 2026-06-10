@@ -1,0 +1,20 @@
+name: Verificar HTML
+
+on:
+push:
+
+jobs:
+verificar:
+runs-on: unbuntu-latest
+
+steps:
+-uses: actions/checkout@v4
+
+-name: Verificar index.html 
+run: |
+if [-f index.html ]: then
+echo "Arquivo index.html encontrado"
+else
+echo "Arquivo index.html nao enocntradp"
+exit 1
+fi
